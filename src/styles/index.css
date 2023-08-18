@@ -1,18 +1,21 @@
 /* 
     General Styles
 */
-.carousel{
+.my-carousel{
     display: flex;
     overflow-x: scroll;
-
+    
 };
 
-.the-card {
-    min-width: 1000px;
-    margin-left: 5px;
-};
-
-.the-card > div > img{
-    width: 100%;
+.my-card-black{
+    min-width: 300px;
+    border: 1px solid black;
+    margin: 10px;
 }
-
+/* .my-card-black div img{
+    width: 100%
+} */
+.my-card-black div{
+    min-width: 300px;
+    
+}

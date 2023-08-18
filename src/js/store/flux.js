@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			urlStarWars: "https://www.swapi.tech/api/",
+			urlStarWars: "https://www.swapi.tech/api",
 			characters: [],
 			planets: [],
 			starships: [],
@@ -13,7 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch (`${getStore().urlStarWars}/people`)
 				.then ((response) => response.json())
 				.then ((data) =>{
-					for(let item of data.result){
+					for(let item of data.results){
 						fetch(item.url)
 						.then((response) => response.json())
 						.then((data)=>{
@@ -31,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch (`${getStore().urlStarWars}/planets`)
 				.then ((response) => response.json())
 				.then ((data) =>{
-					for(let item of data.result){
+					for(let item of data.results){
 						fetch(item.url)
 						.then((response) => response.json())
 						.then((data)=>{
@@ -49,7 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch (`${getStore().urlStarWars}/starships`)
 				.then ((response) => response.json())
 				.then ((data) =>{
-					for(let item of data.result){
+					for(let item of data.results){
 						fetch(item.url)
 						.then((response) => response.json())
 						.then((data)=>{
