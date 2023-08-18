@@ -44,7 +44,7 @@ export const Home = () => {
 					<p><strong>Gravity:</strong>{item.properties.gravity}</p>
 					</div>
 					<div className="buttons">
-  						<label className="btn btn-outline-primary" >Learn more!</label>
+					<Link  to={`/planets/${item._id}`}className="btn btn-outline-primary" >Learn more!</Link>
 						<button className="btn btn-outline-warning">♡</button>
 					</div>
 				</div>)
@@ -64,7 +64,7 @@ export const Home = () => {
 					<p><strong>Manufacture:</strong>{item.properties.manufacture}</p>
 					</div>
 					<div className="buttons">
-  						<label className="btn btn-outline-primary" >Learn more!</label>
+					<Link  to={`/starships/${item._id}`}className="btn btn-outline-primary" >Learn more!</Link>
 						<button className="btn btn-outline-warning">♡</button>
 					</div>
 				</div>)
