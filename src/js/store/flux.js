@@ -1,43 +1,68 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			urlStarWars: "https://www.swapi.tech/api/",
+			characters: [],
+			planets: [],
+			starships: [],
+
+
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			getCharacters: () => {
+				fetch (`${getStore().urlStarWars}/people`)
+				.then ((response) => response.json())
+				.then ((data) =>{
+					for(let item of data.result){
+						fetch(item.url)
+						.then((response) => response.json())
+						.then((data)=>{
+							setStore({
+								characters: [...getStore().characters, data.result]
+							});
+						}).catch((error)=>{
+							console.log(error);
+						})
+					}
+				}).catch((error)=>{
+					console.log(error);})
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			getPlanet: () => {
+				fetch (`${getStore().urlStarWars}/planets`)
+				.then ((response) => response.json())
+				.then ((data) =>{
+					for(let item of data.result){
+						fetch(item.url)
+						.then((response) => response.json())
+						.then((data)=>{
+							setStore({
+								planets: [...getStore().planets, data.result]
+							});
+						}).catch((error)=>{
+							console.log(error);
+						})
+					}
+				}).catch((error)=>{
+					console.log(error);})
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			getStarship: () => {
+				fetch (`${getStore().urlStarWars}/starships`)
+				.then ((response) => response.json())
+				.then ((data) =>{
+					for(let item of data.result){
+						fetch(item.url)
+						.then((response) => response.json())
+						.then((data)=>{
+							setStore({
+								starships: [...getStore().starships, data.result]
+							});
+						}).catch((error)=>{
+							console.log(error);
+						})
+					}
+				}).catch((error)=>{
+					console.log(error);})
+			},
 		}
 	};
 };

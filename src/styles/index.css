@@ -1,3 +1,18 @@
 /* 
     General Styles
 */
+.carousel{
+    display: flex;
+    overflow-x: scroll;
+
+};
+
+.the-card {
+    min-width: 1000px;
+    margin-left: 5px;
+};
+
+.the-card > div > img{
+    width: 100%;
+}
+
