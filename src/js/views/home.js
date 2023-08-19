@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
 	const {store} = useContext (Context);
+	const Favorites =() =>{
+		addFavorites(item.properties.name);
+	};
 	return (
 		<>
 		<div className="container mt-5">
@@ -23,8 +26,10 @@ export const Home = () => {
 					<p className="text-"><strong>Eye color:</strong> {item.properties.eye_color}</p>
 					</div>
 					<div className="buttons">
-  						<Link  to={`/characters/${item._id}`}className="btn btn-outline-primary" >Learn more!</Link>
-						<button className="btn btn-outline-warning">♡</button>
+  						<Link  to={"/characterD"}className="btn btn-outline-primary" >Learn more!</Link>
+						<button className="btn btn-outline-warning"
+						onClick={Favorites}
+						>♡</button>
 					</div>
 				</div>
 					)
@@ -44,7 +49,7 @@ export const Home = () => {
 					<p><strong>Gravity:</strong>{item.properties.gravity}</p>
 					</div>
 					<div className="buttons">
-					<Link  to={`/planets/${item._id}`}className="btn btn-outline-primary" >Learn more!</Link>
+					<Link  to={`/planet/${item._id}`}className="btn btn-outline-primary" >Learn more!</Link>
 						<button className="btn btn-outline-warning">♡</button>
 					</div>
 				</div>)
@@ -64,12 +69,13 @@ export const Home = () => {
 					<p><strong>Manufacture:</strong>{item.properties.manufacture}</p>
 					</div>
 					<div className="buttons">
-					<Link  to={`/starships/${item._id}`}className="btn btn-outline-primary" >Learn more!</Link>
+					<Link  to={`/starshipD/${item._id}`}className="btn btn-outline-primary" >Learn more!</Link>
 						<button className="btn btn-outline-warning">♡</button>
 					</div>
 				</div>)
 				})}
 			</div>
+			
 		</div>
 	</>
 	)

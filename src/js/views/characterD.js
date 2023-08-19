@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { useParams } from "react-router";
 
 
-export const Planet =() =>{
+export const People =() =>{
    const {store} = useContext ( Context);
 
    
@@ -27,14 +27,15 @@ export const Planet =() =>{
                     <footer className="py-3 my-4">
                         <ul className="nav justify-content-center border-top pb-3 mb-3">
                             <li className="nav-item">Name</li>
-                            <li className="nav-item">Gravity</li>
-                            <li className="nav-item">Terrain</li>
-                            <li className="nav-item">Population</li>
-                            <li className="nav-item">Climate</li>
+                            <li className="nav-item">Birth year</li>
+                            <li className="nav-item">Gender</li>
+                            <li className="nav-item">Height</li>
+                            <li className="nav-item">Skin color</li>
                         </ul>
                     </footer>
                 </div>
                 </>
+           
             )
         })}
 }
