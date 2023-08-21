@@ -5,10 +5,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 			characters: [],
 			planets: [],
 			starships: [],
+			favorites: [],
 
 
 		},
 		actions: {
+			addFavorites: (fav) => {
+				let store= getStore() 
+				let verify = store.favorites.some((item)=> fav._id == item._id)
+				if (verify) {
+					let newFavorites = store.favorites.filter((item)=> item._id != fav._id)
+					setStore({
+						favorites: newFavorites
+					})
+				} else {
+					setStore({
+						favorites: [...store.favorites, fav]
+					})
+				}
+			},
 			getCharacters: () => {
 				fetch (`${getStore().urlStarWars}/people`)
 				.then ((response) => response.json())
